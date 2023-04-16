@@ -10,11 +10,7 @@
  }
  ?>
 
-<head>
-   
-   
 
-</head>
 <div class="layout-header">
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -36,6 +32,10 @@
 
         <li class="nav-item">
           <a class="nav-link" href="index.php?page=laptop">laptop</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="index.php?page=help">help</a>
         </li>
 
         

@@ -84,10 +84,7 @@
                                         
                                     </div>
                                 </div>
-
-
-                            
-                             
+                           
            </div> 
 
            <div class="col-md-4 mt-2">
@@ -127,11 +124,7 @@
 
                                         
                                     </div>
-                                </div>
-
-
-                            
-                             
+                                </div>                            
            </div> 
 
 
@@ -173,10 +166,7 @@
                                         
                                     </div>
                                 </div>
-
-
                             
-                             
            </div> 
 
 
@@ -217,11 +207,7 @@
 
                                         
                                     </div>
-                                </div>
-
-
-                            
-                             
+                                </div>                            
            </div> 
 
 
@@ -258,20 +244,9 @@
 
                                         <div class="text-muted mb-3">34 reviews</div>
 
-                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>
-
-                                        
+                                        <button type="button" class="btn bg-cart"><i class="fa fa-cart-plus mr-2"></i> Add to cart</button>                                       
                                     </div>
-                                </div>
-
-
-                            
-                             
+                                </div>                            
            </div> 
-
-
-
-
-
         </div>
     </div>

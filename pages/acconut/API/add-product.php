@@ -1,30 +1,46 @@
 <?php
-include_once '../../../models/ConnectSQL.php';
+// Lấy thông tin đăng ký từ Ajax
+ include_once '../../../models/ConnectSQL.php';
+ 
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['password'];
+$cf_password = $_POST['cf_password'];
+$phone = $_POST['phone'];
+$address = $_POST['address'];
 
-$name = $_POST["name"];
-$description = $_POST["description"];
-$category = $_POST["category"];
-$expire_date = $_POST["expire_date"];
-$stock = $_POST["stock"];
-$image = $_FILES["fileInput"]["name"];
 
-// Perform validation on the input fields as needed.
+$sql_check = "SELECT * FROM administration WHERE name='$username' or email='$email'";
+$result_check = mysqli_query($conn, $sql_check);
 
-// Move the uploaded image file to a designated folder.
-$target_dir = "uploads/";
-$target_file = $target_dir . basename($_FILES["fileInput"]["name"]);
-move_uploaded_file($_FILES["fileInput"]["tmp_name"], $target_file);
+// Kiểm tra các trường thông tin đăng ký
+if (empty($username) || empty($email) || empty($password) || empty($cf_password) || empty($phone) || empty($address)) {
+  echo 'Please fill in all fields.';
+} else if (mysqli_num_rows($result_check) > 0) {
+     echo'this name or email not already exists';
+ } else if ($password !== $cf_password) {
+  echo 'Passwords do not match.';
+}else{
+  // Xử lý đăng ký tại đây
+  $password = md5($password);
 
-// Add the new product to the database.
-$sql_add = "INSERT INTO products (name, description, category, expire_date, stock, image_url)
-            VALUES ('$name', '$description', '$category', '$expire_date', '$stock', '$image')";
-$result_add = mysqli_query($conn, $sql_add);
+  $query = "INSERT INTO administration (name, email, password, phone, address) VALUES ('$username', '$email', '$password', '$phone', '$address')";
+  if (mysqli_query($conn, $query)) {
+    $response = array('success' => true);
+    echo json_encode($response);
+  } else {
+    $response = array('success' => false, 'message' => 'Failed to register user');
+    echo json_encode($response);
+      }
 
-if ($result_add) {
-    echo json_encode(array("success" => true));
-} else {
-    echo json_encode(array("success" => false, "message" => "Failed to add product to database."));
-}
+     }
 
 mysqli_close($conn);
+
 ?>
+
+
+  
+
+
+

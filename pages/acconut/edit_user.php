@@ -1,6 +1,13 @@
 <?php
-    include '../../models/ConnectSQL.php';
-    $userId = $_POST['user_id'];
-    mysqli_query($conn,"UPDATE `administration` SET `password` = MD5('" . $_POST['new_password'] . "'), `last_updated`=" . time() . " WHERE (`id` = " . $_POST['user_id'] . " AND `password` = '" . md5($_POST['old_password']) . "')");
-    mysqli_close($conn);
+include '../../models/ConnectSQL.php';
+
+$user_id = $_POST['user_id'];
+
+$query = "SELECT * FROM administration WHERE id = $user_id";
+$result = mysqli_query($conn, $query);
+$row = mysqli_fetch_assoc($result);
+
+echo json_encode($row);
+
+mysqli_close($conn);
 ?>

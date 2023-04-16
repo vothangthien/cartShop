@@ -1,21 +1,14 @@
 <?php
-  // Kiểm tra xem user_id cookie đã được set hay chưa
   if (!isset($_COOKIE['user_id'])) {
-    // Nếu chưa set, chuyển hướng đến trang đăng nhập
     header('Location: http://localhost/018101046/index.php?page=signin');
     exit;
   }
-
-  // Lấy user_id từ cookie
   $user_id = $_COOKIE['user_id'];
 ?>
 
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <title> </title>
-</head>
+
 <body>
 
 

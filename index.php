@@ -1,20 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
-     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous"/>
+<head>  
+     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Amatic+SC">
      <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/css/bootstrap.min.css"/>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"></script>
+     <script src="https://www.w3schools.com/lib/w3.js"></script>
 
-
-<link rel="stylesheet" href="./public/style/indexCSS.css"/>
-
-
+     <link rel="stylesheet" href="./public/style/indexCSS.css"/>
 </head>
 <body>
       <header>
@@ -24,18 +18,18 @@
                 ?>
            </div>
       </header>
-
      <main>
           <div class="container" >
            <?php
                $page=isset($_GET['page']) ? $_GET['page'] :'Home';
-               switch($page){
+               switch($page){    
+                    
+                    case 'edit_user':
+                         include './pages/acconut/edit_user.php';
+                         break; 
                     case 'delete_user':
                          include './pages/acconut/delete_user.php';
-                         break;
-              
-
-                   
+                         break;               
                     case 'add-product':
                          include './pages/acconut/add-product.php';
                          break;
@@ -51,6 +45,9 @@
                               include './pages/acconut/subacconut.php';
                               break;
 
+                         case 'help':
+                                 include './pages/help.php';        
+                                 break;
                          case 'laptop':
                               include './pages/laptop.php';
                               break;
@@ -70,9 +67,6 @@
 
           </div>
      </main>
-
-
-
       <footer>
           <div>
                <?php
@@ -80,9 +74,5 @@
                ?>
           </div>
       </footer>
-
-
-
-
 </body>
 </html>

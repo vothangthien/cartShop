@@ -1,0 +1,19 @@
+table, th, td {
+    border: 1px solid black;
+}
+#user-info{
+    cursor: pointer;
+
+    border: 1px solid #ccc;
+    margin: 0 auto;
+    padding: 25px;
+}
+#user-info table{
+    
+    margin: 10px auto 0 auto;
+    text-align: center;
+}
+#user-info h1{
+    
+    text-align: center;
+}
