@@ -46,8 +46,8 @@
                     <?php } ?>
                 </table>
             </div>
-            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- phần tạo tài khoản -->
+     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <!-- phần thêm tài khoản -->
     <script>
             $(document).ready(function() {
             $('#register-form').submit(function(event) {
@@ -84,78 +84,75 @@
             });
             });
 
-            </script>
-
+         </script>
    
-
-
-<!-- phần xóa tài khoản  -->
-<script>
- $(document).ready(function() {
-    $('.edit-btn').click(function() {
-        var userId = $(this).data('user-id');
-        $.ajax({
-            url: 'http://localhost/018101046/pages/acconut/edit_user.php',
-            type: 'POST',
-            data: { user_id: userId },
-            dataType: 'json',
-            success: function(response) {
-                $('#username').val(response.name);
-                $('#email').val(response.email);
-                $('#password').val(response.password);
-                $('#cf_password').val(response.password);
-                $('#phone').val(response.phone);
-                $('#address').val(response.address);
-                $('.update-btn').remove();
-
-                // Add a new button to update the user
-                $('#register-form').append('<button type="button" class="update-btn" data-user-id="' + userId + '">Cập nhật</button>');
-
-                // Hide the register button
-                $('#register-form button[type="submit"]').hide();
-                                // Bind the update button click event
-                $('.update-btn').click(function() {
-                    var username = $('#username').val();
-                    var email = $('#email').val();
-                    var password = $('#password').val();
-                    var cf_password = $('#cf_password').val();
-                    var phone = $('#phone').val();
-                    var address = $('#address').val();
-                    
+   <!-- phần sử tài khoản  -->
+   <script>
+            $(document).ready(function() {
+                $('.edit-btn').click(function() {
+                    var userId = $(this).data('user-id');
                     $.ajax({
                         url: 'http://localhost/018101046/pages/acconut/edit_user.php',
                         type: 'POST',
-                        data: {
-                            user_id: userId,
-                            username: username,
-                            email: email,
-                            password: password,
-                            cf_password: cf_password,
-                            phone: phone,
-                            address: address
-                        },
+                        data: { user_id: userId },
+                        dataType: 'json',
                         success: function(response) {
-                            if (response === 'success') {
-                                window.location.reload();
-                            } else {
-                                $('#error-message span').text(response);
-                            }
+                            $('#username').val(response.name);
+                            $('#email').val(response.email);
+                            $('#password').val(response.password);
+                            $('#cf_password').val(response.password);
+                            $('#phone').val(response.phone);
+                            $('#address').val(response.address);
+                            $('.update-btn').remove();
+                            // Add a new button to update the user
+                            $('#register-form').append('<button type="button" class="update-btn" data-user-id="' + userId + '">Cập nhật</button>');
+                            // Hide the register button
+                                        
+                            $('#register-form button[type="submit"]').hide();
+                                            // Bind the update button click event
+                            $('.update-btn').click(function() {
+                                var username = $('#username').val();
+                                var email = $('#email').val();
+                                var password = $('#password').val();
+                                var cf_password = $('#cf_password').val();
+                                var phone = $('#phone').val();
+                                var address = $('#address').val();
+                                
+                                $.ajax({
+                                    url: 'http://localhost/018101046/pages/acconut/updata_user.php',
+                                    type: 'POST',
+                                    data: {
+                                        user_id: userId,
+                                        username: username,
+                                        email: email,
+                                        password: password,
+                                        cf_password: cf_password,
+                                        phone: phone,
+                                        address: address
+                                    },
+                                    success: function(response) {
+                                        if (response === 'success') {
+                                            window.location.reload();
+                                        } else {
+                                            $('#error-message span').text(response);
+                                        }
+                                    },
+                                    error: function() {
+                                        $('#error-message span').text('There was a problem with the server, please try again later.');
+                                    }
+                                });
+                            });
                         },
                         error: function() {
-                            $('#error-message span').text('There was a problem with the server, please try again later.');
+                            alert('There was a problem getting the user data.');
                         }
                     });
                 });
-            },
-            error: function() {
-                alert('There was a problem getting the user data.');
-            }
-        });
-    });
-});
+                });
 
-</script>
-    <script>
+    </script>
+  <!-- phần  xóa  tài khoản  -->
+     <script>
 
         $(document).ready(function() {
             $('.delete-btn').click(function() {
@@ -176,5 +173,4 @@
             });
         });
         </script>
-
-        </body>
+ </body>
