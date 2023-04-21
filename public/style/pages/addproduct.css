@@ -1,0 +1,49 @@
+
+.body-form-addproduct{
+display: block;
+     border: 1px solid black;
+
+     width: 1200px;
+     height: 800px;
+}
+
+.form-addproduct{
+    display: flex;
+
+     width: 1200px;
+     border: 1px solid black;
+     height: 730px;
+     left: auto;
+
+  
+
+}
+.form-addproduct-left{
+     border: 1px solid black;
+     width: 700px;
+   
+}
+.form-addproduct-right{
+     width: 500px;
+
+}
+
+.product-image{
+     height: 624px;
+     width: 500px;
+     border: 1px solid black;
+}
+.product-image>.input-img{
+     height: 624px;
+     width: 500px;
+}
+
+.classbutton{
+     font-size: 30px;
+     font-weight: 900;
+     color: black;
+     background-color: lightcyan !important;
+     width:200px;
+     height: 60px;
+
+     }

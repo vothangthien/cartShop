@@ -1,25 +1,15 @@
 
-
-
-<!DOCTYPE html>
-<html lang="en">
-
 <body>
-
 <div  class="mx-auto mt-2 px-5 py-5 " style="width:500px;height:800px ;border:5px solid black; border-radius:80px ">
     <form id="form-signin" class="form" method="POST">
-
     <div class="mb-3 mt-3">
       <label for="email" class="form-label">Email:</label>
       <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
     </div>
-
     <div class="mb-3">
       <label for="password" class="form-label">Password:</label>
       <input type="password" class="form-control" id="password" placeholder="Enter password" name="password" required>
     </div>
-
-
     <button type="submit" class="btn btn-primary">SignIn</button>
     <div>
        <span><p>Don't have an account? <a href="index.php?page=register">Click</a></p></span>
@@ -45,13 +35,10 @@ form.addEventListener("submit", (event) => {
         const response = JSON.parse(xhr.responseText);
         if (response.success) {
           alert("Login successful!");
-          // Set the user_id and other cookies
           const userCookies = {
             user_id: response.user_id,
-            user_email: emailInput.value,
-        
+            user_email: emailInput.value,       
             user_role: response.user_role,
-            // Add more cookies if needed
           };
           for (const [key, value] of Object.entries(userCookies)) {
             document.cookie = `${key}=${value}; expires=${new Date(Date.now() + 30 * 24 * 60 * 60 * 1000).toUTCString()}; path=/`;
@@ -71,6 +58,4 @@ form.addEventListener("submit", (event) => {
   xhr.send(`email=${emailInput.value}&password=${passwordInput.value}`);
 });
 </script>
-
 </body>
-</html>

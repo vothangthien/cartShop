@@ -17,8 +17,9 @@
             <input type="password" class="form-control" id="cf_password" placeholder="Confirm password" name="cf_password" required />
             <input type="tel" class="form-control" id="phone" placeholder="Phone" name="phone" required />
             <input type="text" class="form-control" id="address" placeholder="Address" name="address" required />
-
-                    <button type="submit" class="btn btn-primary" value="Register">Register</button>
+                    
+                    <button type="button" class="update-btn" style="width:100px,height:20px" data-user-id="' + userId + '">Cập nhật</button>
+                    <button type="submit"  style="width:100px,height:20px" value="Register">Register</button>
                         <div id="error-message">
                         <span></span>
                         </div>
@@ -103,12 +104,7 @@
                             $('#cf_password').val(response.password);
                             $('#phone').val(response.phone);
                             $('#address').val(response.address);
-                            $('.update-btn').remove();
-                            // Add a new button to update the user
-                            $('#register-form').append('<button type="button" class="update-btn" data-user-id="' + userId + '">Cập nhật</button>');
-                            // Hide the register button
-                                        
-                            $('#register-form button[type="submit"]').hide();
+                         
                                             // Bind the update button click event
                             $('.update-btn').click(function() {
                                 var username = $('#username').val();

@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-  </head>
 
   <body>
     <div class="mx-auto mt-2 px-5 py-1 form-register" style="width:500px;height:800px;border:5px solid black;border-radius:80px">
@@ -87,5 +83,3 @@
         });
 
     </script>
-  </body>
-</html>

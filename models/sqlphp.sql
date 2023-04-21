@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 12, 2023 at 10:10 AM
+-- Generation Time: Apr 18, 2023 at 09:48 AM
 -- Server version: 10.4.10-MariaDB
 -- PHP Version: 7.3.12
 
@@ -41,16 +41,16 @@ CREATE TABLE IF NOT EXISTS `administration` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `administration`
 --
 
 INSERT INTO `administration` (`id`, `name`, `email`, `phone`, `address`, `password`, `created_at`, `updated_at`) VALUES
-(1, 'thien', 'admin@gmail.com.vn', 335627466, 'p10', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-12 17:04:14', '2023-04-12 17:04:14'),
-(2, 'admin', 'admin@tgu.edu.vn', 335627466, '98/3 áº¤p Báº¯c, PhÆ°á»ng 10, ThÃ nh Phá»‘ Má»¹ Tho, Tiá»n Giang', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-12 17:05:16', '2023-04-12 17:05:16'),
-(3, '2admin', 'vophison2991998@gmail.com', 335627466, '98/3 áº¤p Báº¯c, PhÆ°á»ng 10, ThÃ nh Phá»‘ Má»¹ Tho, Tiá»n Giang', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-12 17:09:54', '2023-04-12 17:09:54');
+(2, 'admin', 'admin@tgu.edu.vn', 335627466, '98/3 áº¤p Báº¯c, PhÆ°á»ng 10, ThÃ nh Phá»‘ Má»¹ Tho, Tiá»n Giang', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-12 17:05:16', '2023-04-17 18:07:00'),
+(29, 'thien', 'vophison2991998@gmail.com', 335627466, '98/3 áº¤p Báº¯c, PhÆ°á»ng 10, ThÃ nh Phá»‘ Má»¹ Tho, Tiá»n Giang', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-18 15:18:35', '2023-04-18 15:18:43'),
+(30, 'admin1', '1vophison2991998@gmail.com', 335627466, '98/3 áº¤p Báº¯c, PhÆ°á»ng 10, ThÃ nh Phá»‘ Má»¹ Tho, Tiá»n Giangdfvdfb', 'e10adc3949ba59abbe56e057f20f883e', '2023-04-18 16:07:01', '2023-04-18 16:07:01');
 
 -- --------------------------------------------------------
 
@@ -80,17 +80,22 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 DROP TABLE IF EXISTS `products`;
 CREATE TABLE IF NOT EXISTS `products` (
-  `id` int(11) NOT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `description` text COLLATE utf8_unicode_ci DEFAULT NULL,
   `price` decimal(10,2) NOT NULL,
-  `image_url` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+    `image` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `products`
+--
+
+-------------------------------------------------------
 
 --
 -- Table structure for table `user`
